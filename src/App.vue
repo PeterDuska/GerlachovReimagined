@@ -1,4 +1,4 @@
-<script setup lang="js">
+<script setup>
 import Navbar from "./components/Navbar.vue";
 import Hero from "./components/Hero.vue";
 import SectionWhy from "./components/SectionWhy.vue";
