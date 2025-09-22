@@ -108,3 +108,8 @@ html { scroll-behavior: smooth; }
 .soft-shadow { box-shadow: 0 20px 40px rgba(3,10,18,.08); }
 
 .ease-smooth { transition-timing-function: cubic-bezier(.2,.8,.2,1); }
+
+html, body { overflow-x: hidden; }
+
+/* When the menu is open we also lock vertical scroll */
+.no-scroll { overflow: hidden; }
