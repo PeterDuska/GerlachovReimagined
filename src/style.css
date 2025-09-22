@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* put your @apply utilities here (works fine in v3) */
+@layer components {
+   .btn-ghost { @apply inline-flex items-center justify-center px-6 py-3 rounded-full border border-ink/15 text-ink/80 hover:bg-ink/[.04]; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold
+           text-ink shadow-md transition;
+    background-image: linear-gradient(135deg, theme(colors.meadow) 0%, theme(colors.pine) 100%);
+  }
+  .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.btn-accent {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-full
+         font-medium border border-moss/40 text-white
+         bg-moss/20
+         hover:bg-moss hover:text-ink
+         transition;
+}
+
+  .glass-anim {
+    @apply absolute inset-0 pointer-events-none rounded-none transition-opacity duration-500;
+    background: rgba(255,255,255,.10);
+    backdrop-filter: saturate(160%) blur(14px);
+  }
+  /* slightly stronger when scrolled so it reads even over white pages */
+  .glass-anim-strong {
+    background: rgba(255,255,255,.16);
+    backdrop-filter: saturate(160%) blur(16px);
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    border-bottom: 1px solid rgba(255,255,255,.18);
+  }
+  .glass   { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(16px); }
+  .card    { @apply rounded-2xl bg-white shadow-card border border-ink/[.06]; }
+  .card-minimal { @apply rounded-2xl bg-snow border border-ink/[.06]; }
+    .band-sunrise { background: linear-gradient(180deg,#fbfdff 0%, #f7fafc 45%, #eef6fb 100%); }
+      .chip { @apply px-3 py-1 rounded-full text-xs bg-white border border-ink/10;
+          box-shadow: 0 6px 16px rgba(109,211,245,.15); }
+
+  .card-happy { @apply rounded-2xl bg-white border border-ink/10 shadow-card transition;
+                }
+  .card-happy:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(15,23,42,.08); }
+
+  /* hero—sunrise overlay */
+  .hero-sunrise { background: radial-gradient(120% 120% at 30% -10%, rgba(255,215,138,.45) 0%, rgba(255,215,138,0) 40%),
+                              linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 70%); }
+
+  /* tiny reveal easing */
+  .ease-smooth { transition-timing-function: cubic-bezier(.2,.8,.2,1); }
+
+
+   .footer-link { @apply hover:text-white transition; }
+  .footer-icon { @apply h-9 w-9 grid place-items-center rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition; }
+
+  .section-title { @apply text-3xl md:text-4xl font-semibold text-ink; }
+  .lead          { @apply mt-3 text-ink/70 max-w-3xl; }
+
+  .input { @apply w-full px-4 py-3 rounded-xl bg-white border border-ink/[.12] text-ink outline-none focus:ring-2 focus:ring-glacier/70; }
+
+  .drop-link { @apply block px-3 py-2 rounded-lg hover:bg-white/10; }
+  .nav-glass { background: rgba(12,18,24,.55); border:1px solid rgba(255,255,255,.12); backdrop-filter: blur(12px); }
+}
+header { transition-property: background-color, backdrop-filter, box-shadow, transform, height; transition-timing-function: cubic-bezier(.2,.8,.2,1); }
+
+.menu-enter-active, .menu-leave-active { transition: opacity .25s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+.menu-enter-from, .menu-leave-to { opacity: 0; transform: translateY(-8px); }
+
+/* Global polish */
+html { scroll-behavior: smooth; }
+.fade-enter-active, .fade-leave-active { transition: opacity .8s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+.hero-gradient {
+  background: linear-gradient(180deg,
+    rgba(0,0,0,.35) 0%,
+    rgba(0,0,0,.55) 60%,
+    rgba(0,0,0,.7) 100%);
+}
+
+/* page bands for contrast */
+.band-stone { background: linear-gradient(180deg,#f5f7f9 0%,#f7f9fb 100%); }
+.band-white { background: #fff; }
+
+/* container padding that feels fuller on desktop */
+.container-x { @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-12; }
+
+/* small icon badge for cards */
+.badge {
+  @apply inline-flex items-center justify-center h-10 w-10 rounded-xl bg-ink/[.06] text-ink/80;
+}
+
+/* image card */
+.image-card { @apply rounded-2xl overflow-hidden bg-white border border-ink/[.06] shadow-card; }
+
+/* Soft top/bottom fade so the image blends into the page */
+.img-blend-tb {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+/* bottom-only blend (crisp top, soft bottom) — use for this section */
+.img-blend-b {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
+}
+/* optional soft shadow and rounded container when not full-bleed */
+.soft-shadow { box-shadow: 0 20px 40px rgba(3,10,18,.08); }
+
+.ease-smooth { transition-timing-function: cubic-bezier(.2,.8,.2,1); }
